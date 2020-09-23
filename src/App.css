@@ -2,9 +2,27 @@
   margin: 0;
 }
 
+.app{
+  margin-top: 20px;
+  justify-content: space-evenly;
+  display: flex; 
+}
+
+.app_left{
+  flex: 0.8;
+}
+
 .app_header{
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
+}
+
+.app_header_left{
+  flex: 0.9;
+}
+
+.app_stat{
+  display: flex;
+  justify-content: space-between;
 }
