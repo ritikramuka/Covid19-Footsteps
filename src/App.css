@@ -2,27 +2,28 @@
   margin: 0;
 }
 
-.app{
+.app {
   margin-top: 20px;
   justify-content: space-evenly;
-  display: flex; 
+  display: flex;
+  background-color: green;
 }
 
-.app_left{
+.app_left {
   flex: 0.9;
 }
 
-.app_header{
+.app_header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.app_header_left{
+.app_header_left {
   flex: 0.9;
 }
 
-.app_stat{
+.app_stat {
   display: flex;
   justify-content: space-between;
 }
