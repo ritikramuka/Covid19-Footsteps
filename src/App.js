@@ -102,7 +102,7 @@ function App() {
             <Table countries={tableData}></Table>
             {/* graph */}
             <h3>Worldwide New Cases</h3>
-            <LineChart></LineChart>
+            <LineChart casesType="cases"/>
           </CardContent>
         </Card>
       </div>

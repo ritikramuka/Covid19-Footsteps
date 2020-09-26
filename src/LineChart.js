@@ -1,48 +1,103 @@
-import React ,{useState, useEffect} from 'react'
-import Line from 'react-chartjs-2'
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import numeral from "numeral";
 
-function LineChart() {
-    const [data, setData] = useState([]);
+const options = {
+  legend: {
+    display: false,
+  },
+  elements: {
+    points: {
+      radius: 1,
+    },
+  },
+  maintainAspectRatio: false,
+  tooltips: {
+    mode: "index",
+    intersect: false,
+    callbacks: {
+      lable: function (tooltipItem, data) {
+        return numeral(tooltipItem.value).format("+0,0");
+      },
+    },
+  },
+  scales: {
+    xAxes: [
+      {
+        type: "time",
+        time: {
+          formate: "MM/DD/YY",
+          tooltipFormat: "ll",
+        },
+      },
+    ],
+    yAxes: [
+      {
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          callback: function (value, index, values) {
+            return numeral(value).format("0a");
+          },
+        },
+      },
+    ],
+  },
+};
 
-    const BuildChartData = (data, casesType = "cases") => {
-        const chartData = [];
-        let lastDataPoint;
-        for(let date in data[casesType]) {
-          if(lastDataPoint) {
-            const newDataPoint = {
-              x: date,
-              y: data[casesType][date] - lastDataPoint
-            }
-            chartData.push(newDataPoint);
-          } 
-          lastDataPoint = data['cases'][date];
-        }
-        return chartData;
-      }
+const BuildChartData = (data, casesType) => {
+  const chartData = [];
+  let lastDataPoint;
+  for (let date in data.cases) {
+    if (lastDataPoint) {
+      const newDataPoint = {
+        x: date,
+        y: data[casesType][date] - lastDataPoint,
+      };
+      chartData.push(newDataPoint);
+    }
+    lastDataPoint = data[casesType][date];
+  }
+  return chartData;
+};
 
-    useEffect(() => {
-        fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-        .then(response => response.json())
-        .then((data) => {
-            const chartData = BuildChartData(data);
-            setData(chartData);
+function LineChart({casesType = 'cases'}) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
+        .then((response) => {
+          return response.json();
         })
-    }, [])
+        .then((data) => {
+          let chartData = BuildChartData(data, casesType);
+          setData(chartData);
+        });
+    };
+    fetchData();
+  }, [casesType]);
 
-    return (
-        <div className = "lineChart">
-            <h1>Im graph</h1>
-            <Line data={{
-                datasets : [
-                {
-                    backgroundColor : "#ff3421",
-                    borderColor : "#f3f3ff",
-                    data: data
-                }]
-            }}></Line>
-        </div>
-
-)
+  return (
+    <div className="lineChart">
+      <h1>I'm a graph</h1>
+      {data?.length > 0 && (
+        <Line
+        data={{
+          datasets: [
+            {
+              backgroundColor: "rgba(204, 200, 20, 0.5)",
+              borderColor: "#000000",
+              data: data,
+            },
+          ],
+        }}
+        options= { options }
+        />
+      )}
+    </div>
+  );
 }
 
-export default LineChart
+export default LineChart;
