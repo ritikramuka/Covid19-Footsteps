@@ -81,7 +81,6 @@ function LineChart({casesType = 'cases'}) {
 
   return (
     <div className="lineChart">
-      <h1>I'm a graph</h1>
       {data?.length > 0 && (
         <Line
         data={{
