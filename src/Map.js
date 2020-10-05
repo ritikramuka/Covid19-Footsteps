@@ -1,9 +1,9 @@
 import React from "react";
 import "./Map.css";
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
-import {showDataOnMap} from "./utils";
+import { showDataOnMap } from "./utils";
 
-function Map({countries, casesType, center, zoom}) {
+function Map({ countries, casesType, center, zoom }) {
   return (
     <div className="map">
       <LeafletMap center={center} zoom={zoom}>
@@ -13,7 +13,6 @@ function Map({countries, casesType, center, zoom}) {
         ></TileLayer>
         {showDataOnMap(countries, casesType)}
       </LeafletMap>
-
     </div>
   );
 }

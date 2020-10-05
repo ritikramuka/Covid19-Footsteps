@@ -3,20 +3,17 @@
 }
 
 .app {
-  margin-top: 20px;
+  padding: 20px;
   justify-content: space-evenly;
   display: flex;
   background-color: green;
-}
-
-.app_left {
-  flex: 0.9;
 }
 
 .app_header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .app_header_left {
@@ -26,4 +23,8 @@
 .app_stat {
   display: flex;
   justify-content: space-between;
+}
+
+.app_left {
+  flex: 0.9;
 }
