@@ -7,7 +7,7 @@ const casesTypeColors = {
     hex: "#CC1034",
     multiplier: 800,
   },
-  recoverd: {
+  recovered: {
     hex: "#7dd71d",
     multiplier: 1200,
   },

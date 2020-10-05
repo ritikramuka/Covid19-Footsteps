@@ -6,7 +6,6 @@
   padding: 20px;
   justify-content: space-evenly;
   display: flex;
-  background-color: green;
 }
 
 .app_header {
@@ -27,4 +26,25 @@
 
 .app_left {
   flex: 0.9;
+}
+
+.app_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.app_right .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.app_graph {
+  flex-grow: 1;
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
 }
