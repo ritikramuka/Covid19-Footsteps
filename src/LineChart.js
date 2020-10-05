@@ -86,7 +86,7 @@ function LineChart({ casesType = "cases", ...props }) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(204, 200, 20, 0.5)",
+                backgroundColor: "rgb(204,16,52,0.8)",
                 borderColor: "#000000",
                 data: data,
               },

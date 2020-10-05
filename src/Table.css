@@ -14,5 +14,5 @@
 }
 
 .table tr:nth-of-type(odd) {
-    background-color: aquamarine;
+    background-color: rgb(255, 131, 131);
 }

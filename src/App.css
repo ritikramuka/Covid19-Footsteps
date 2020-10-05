@@ -6,6 +6,7 @@
   padding: 20px;
   justify-content: space-evenly;
   display: flex;
+  background-color: whitesmoke;
 }
 
 .app_header {
@@ -16,6 +17,7 @@
 }
 
 .app_header_left {
+  font-size: 1.5rem;
   flex: 0.9;
 }
 
@@ -41,6 +43,11 @@
 
 .app_graph {
   flex-grow: 1;
+}
+
+.app_right h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
 }
 
 @media (max-width: 990px) {
