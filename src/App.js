@@ -101,9 +101,9 @@ function App() {
               </Select>
             </FormControl>
           </FormGroup>
-          <FormControl class="app_nightmode">
+          {/* <FormControl class="app_nightmode">
             <Switch></Switch>
-          </FormControl>
+          </FormControl> */}
         </div>
         {/* infoboxes */}
         {/* infoboxes */}
